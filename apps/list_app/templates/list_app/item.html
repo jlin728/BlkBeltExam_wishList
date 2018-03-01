@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Travel Buddy</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'list_app/style.css' %}">
+
+</head>
+
+<body>
+
+    <h1>Item: {{ this_item.name }}</h1><br><br>
+    <a href='/dashboard'><button>Home</button></a><a href='/logout'><button>Logout</button></a><br><br>
+    
+    <h2>Other People That Also Want This Item</h2>
+
+    {% for x in others %}
+        {{ x.first }} <br>
+    {% endfor %}
+
+</body>
+</html>

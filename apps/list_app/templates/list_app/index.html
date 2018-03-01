@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wish List</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'list_app/style.css' %}">
+
+
+</head>
+<wrapper>
+
+<body>
+
+    <h1>Hello, {{ user.first }}!</h1>
+    <a href='/logout'><button>Logout</button></a>
+    <h3>Your Wish List:</h3>
+    <table border="1">
+        <tr>
+            <th>Item Name</th>
+            <th>Added By</th>
+            <th>Date Added</th>
+            <th>Action</th>
+        </tr>
+        {% for item in self_items %}
+        <tr>
+            <td><a href='/wish_item/{{item.id}}'>{{ item.name }}</td>
+            <td>{{ item.created_by.first }}</td> 
+            <td>{{ item.created_at }}</td>
+            <td><a href='/delete/{{item.id}}'>Delete</a></td>
+        </tr>
+        {% endfor %}
+
+        {% for item in liked_items %}
+        <tr>
+            <td><a href='/wish_item/{{item.id}}'>{{ item.name }}</a></td>
+            <td>{{ item.created_by.first }}</td>
+            <td>{{ item.created_at }}</td>
+            <td><a href='/remove/{{item.id}}'>Remove</a></td>
+
+        </tr>
+        {% endfor %}
+        
+    
+    </table><br>
+    <a href="/wish_item/new"><button>Create New Item</button></a><br><br>
+
+    <h3>Other User's Wish List</h3>
+    <table border="1">
+        <tr>
+            <th>Item Name</th>
+            <th>Added By</th>
+            <th>Date Added</th>
+            <th>Add to List?</th>
+            
+        </tr>
+        
+        {% for item in all_items %}
+            {% if item not in liked_items %}
+                {% if user.id != item.created_by.id %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.created_by.first }}</td>
+            <td>{{ item.created_at }}</td>
+            <td><a href='/like/{{item.id}}'><button>Add</button></a></td>
+            
+        </tr>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </table><br>   
+</div>
+</body>
+</wrapper>
+</html>

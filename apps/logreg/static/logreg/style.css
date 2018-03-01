@@ -1,0 +1,63 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+body{
+    background-image: url('/static/logreg/paris_color.jpg');
+    background-size: 100%;
+    /* background-position: center; */
+    background-position-y: -90px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.wrapper{
+    margin: 50px auto;
+    border: blueviolet 3px transparent;
+    /* border-radius: 1000px; */
+    width: 400px;
+    padding: 50px;
+    background: white;
+    /* box-shadow: 5px 5px 20px yellow; */
+    box-shadow: 0 0 30px #333;
+    text-align: center;
+}
+
+.dash{
+    margin: 50px auto;
+    border: black 3px transparent;
+    border-radius: 10px;
+    opacity: 0.85;
+    width: 800px;
+    padding: 20px 40px 40px 40px;
+    background: white;
+    box-shadow: 0 0 100px #333;
+    /* text-align: center; */
+}
+
+.form{
+    margin: 50px auto;
+    padding: 10px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid teal;
+    padding: 0; 
+}
+
+.date{
+    width:139px;
+    text-align: center;
+}
+
+input{
+    text-align: center;
+}
+
+p {
+    line-height: 25%;
+}
